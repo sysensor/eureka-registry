@@ -4,10 +4,23 @@ server:
 
 eureka:
   client:
-    registerWithEureka: false
+    registerWithEureka: true
     fetchRegistry: false
     service-url:
           defaultZone: http://localhost:${server.port}/eureka/
   server:
     enableSelfPreservation: true
 
+spring:
+  application:
+    name: eureka-registry
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+logging:
+  file: eureka-console.log
